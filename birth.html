@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Chewy&display=swap" rel="stylesheet">
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      font-family: 'Chewy', 'Comic Sans MS', cursive, sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .balloon {
+      position: absolute;
+      bottom: -120px;
+      width: 60px;
+      height: 80px;
+      border-radius: 30px 30px 30px 30px / 40px 40px 40px 40px;
+      opacity: 0.85;
+      z-index: 30;
+      animation: floatBalloon 8s linear infinite;
+    }
+    .balloon1 { left: 10vw; background: #ff5e62; animation-delay: 0s; }
+    .balloon2 { left: 30vw; background: #fcb69f; animation-delay: 2s; }
+    .balloon3 { left: 50vw; background: #ffe066; animation-delay: 4s; }
+    .balloon4 { left: 70vw; background: #6ee7b7; animation-delay: 1s; }
+    .balloon5 { left: 85vw; background: #a78bfa; animation-delay: 3s; }
+    .balloon::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -30px;
+      width: 4px;
+      height: 30px;
+      background: #8884;
+      border-radius: 2px;
+      transform: translateX(-50%);
+    }
+    @keyframes floatBalloon {
+      0% { bottom: -120px; }
+      100% { bottom: 110vh; }
+    }
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 18px;
+      border-radius: 3px;
+      opacity: 0.85;
+      z-index: 40;
+      animation: confettiFall 4s linear infinite;
+    }
+    .confetti1 { left: 15vw; background: #ff5e62; animation-delay: 0s; }
+    .confetti2 { left: 25vw; background: #fcb69f; animation-delay: 1s; }
+    .confetti3 { left: 35vw; background: #ffe066; animation-delay: 2s; }
+    .confetti4 { left: 45vw; background: #6ee7b7; animation-delay: 0.5s; }
+    .confetti5 { left: 55vw; background: #a78bfa; animation-delay: 1.5s; }
+    .confetti6 { left: 65vw; background: #ff5e62; animation-delay: 2.5s; }
+    .confetti7 { left: 75vw; background: #fcb69f; animation-delay: 3s; }
+    .confetti8 { left: 85vw; background: #ffe066; animation-delay: 3.5s; }
+    @keyframes confettiFall {
+      0% { top: -20px; transform: rotate(0deg); }
+      100% { top: 110vh; transform: rotate(360deg); }
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      min-height: 100vh;
+      position: relative;
+    }
+    .curved-heading {
+      font-family: 'Pacifico', 'Comic Sans MS', cursive, sans-serif;
+      font-size: 3rem;
+      color: #ff5e62;
+      margin-bottom: 2rem;
+      text-shadow: 2px 4px 8px #fff6, 0 2px 0 #fff;
+      letter-spacing: 2px;
+      text-align: center;
+      position: relative;
+      z-index: 20;
+      /* Curve effect */
+      display: inline-block;
+      padding-bottom: 20px;
+      background: none;
+    }
+    .curved-heading span {
+      display: inline-block;
+      transform: rotate(-8deg);
+      /* Simulate arc by rotating each letter */
+    }
+    .curved-heading span:nth-child(2) { transform: rotate(-6deg); }
+    .curved-heading span:nth-child(3) { transform: rotate(-4deg); }
+    .curved-heading span:nth-child(4) { transform: rotate(-2deg); }
+    .curved-heading span:nth-child(5) { transform: rotate(0deg); }
+    .curved-heading span:nth-child(6) { transform: rotate(2deg); }
+    .curved-heading span:nth-child(7) { transform: rotate(4deg); }
+    .curved-heading span:nth-child(8) { transform: rotate(6deg); }
+    .curved-heading span:nth-child(9) { transform: rotate(8deg); }
+    .curved-heading span:nth-child(10) { transform: rotate(10deg); }
+    .curved-heading span:nth-child(11) { transform: rotate(12deg); }
+    .curved-heading span:nth-child(12) { transform: rotate(14deg); }
+    .curved-heading span:nth-child(13) { transform: rotate(16deg); }
+    .curved-heading span:nth-child(14) { transform: rotate(18deg); }
+    .curved-heading span:nth-child(15) { transform: rotate(20deg); }
+    .cake-profile-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+    }
+    /* CSS Cake */
+    .cake {
+      position: relative;
+      width: 380px;
+      height: 320px;
+      margin-top: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+    }
+    .cake-base {
+      width: 380px;
+      height: 180px;
+      background: linear-gradient(180deg, #fff6e0 60%, #ffb347 100%);
+      border-radius: 0 0 120px 120px;
+      box-shadow: 0 12px 48px 0 rgba(255, 94, 98, 0.15);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-bottom: 16px solid #ff5e62;
+      z-index: 2;
+    }
+    .cake-icing {
+      width: 380px;
+      height: 110px;
+      background: #fff;
+      border-radius: 180px 180px 120px 120px/110px 110px 80px 80px;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      z-index: 3;
+      box-shadow: 0 4px 16px #fff6;
+      border-bottom: 8px solid #ffe066;
+    }
+    .cake-candle {
+      position: absolute;
+      top: 10px; /* Attach to top of icing */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 60px;
+      background: repeating-linear-gradient(135deg, #ff5e62, #ff5e62 7px, #fff 7px, #fff 14px);
+      border-radius: 14px;
+      z-index: 6;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .cake-flame {
+      position: absolute;
+      top: -18px; /* Just above the candle */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 28px;
+      background: radial-gradient(circle at 50% 60%, #ffe066 60%, #ffb347 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 32px 12px #ffe06699;
+      z-index: 7;
+      animation: flame 1s infinite alternate;
+    }
+    @keyframes flame {
+      0% { transform: translateX(-50%) scaleY(1); opacity: 1; }
+      100% { transform: translateX(-50%) scaleY(1.15); opacity: 0.85; }
+    }
+    .cake-sprinkle {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      z-index: 4;
+    }
+    .sprinkle1 { background: #ff5e62; top: 90px; left: 60px; }
+    .sprinkle2 { background: #fcb69f; top: 110px; left: 140px; }
+    .sprinkle3 { background: #ffe066; top: 80px; left: 210px; }
+    .sprinkle4 { background: #6ee7b7; top: 120px; left: 300px; }
+    .sprinkle5 { background: #a78bfa; top: 100px; left: 340px; }
+    .profile-pic {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      border: 14px solid #fff;
+      box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+      object-fit: cover;
+      background: #fff;
+      z-index: 1;
+      transition: width 0.3s, height 0.3s, top 0.3s;
+    }
+    .envelope-btn {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 220px;
+      height: 120px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px 0 rgba(252, 182, 159, 0.25);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      font-size: 1.7rem;
+      font-family: 'Chewy', 'Comic Sans MS', cursive, sans-serif;
+      margin: 0 auto;
+      border: none;
+      outline: none;
+      overflow: visible;
+      z-index: 1;
+    }
+    .envelope-btn:hover {
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 16px 48px 0 rgba(252, 182, 159, 0.35);
+      background: #fff8f0;
+    }
+    .envelope-flap {
+      position: absolute;
+      top: -36px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 60px;
+      background: #ffecd2;
+      border-radius: 0 0 60px 60px/0 0 60px 60px;
+      box-shadow: 0 4px 12px 0 rgba(252, 182, 159, 0.15);
+      z-index: 2;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+    .envelope-flap::after {
+      content: '\1F4E9'; /* Envelope emoji */
+      position: absolute;
+      left: 50%;
+      top: 10px;
+      transform: translateX(-50%);
+      font-size: 2.2rem;
+      opacity: 0.7;
+    }
+    .envelope-btn span {
+      position: relative;
+      z-index: 3;
+      color: #ff5e62;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-shadow: 1px 2px 6px #fff6;
+    }
+    .thankyou-message {
+      display: none;
+      margin-top: 2rem;
+      font-size: 2rem;
+      color: #ff5e62;
+      font-family: 'Pacifico', 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      text-shadow: 2px 4px 8px #fff6, 0 2px 0 #fff;
+      background: #fff8f0cc;
+      border-radius: 16px;
+      padding: 1.5rem 2.5rem;
+      box-shadow: 0 8px 32px 0 rgba(252, 182, 159, 0.15);
+      z-index: 100;
+      transition: opacity 0.3s;
+    }
+    .envelope-btn:focus + .thankyou-message,
+    .envelope-btn:active + .thankyou-message {
+      display: block;
+      opacity: 1;
+    }
+    @media (max-width: 600px) {
+      .curved-heading {
+        font-size: 1.3rem;
+        padding-bottom: 10px;
+      }
+      .cake {
+        width: 180px;
+        height: 140px;
+        margin-top: 80px;
+      }
+      .cake-base, .cake-icing {
+        width: 180px;
+      }
+      .cake-base {
+        height: 80px;
+        border-radius: 0 0 60px 60px;
+        border-bottom-width: 8px;
+      }
+      .cake-icing {
+        height: 50px;
+        border-radius: 90px 90px 60px 60px/50px 50px 40px 40px;
+        top: 30px;
+        border-bottom-width: 4px;
+      }
+      .cake-candle {
+        width: 12px;
+        height: 28px;
+        border-radius: 6px;
+        top: 4px;
+      }
+      .cake-flame {
+        width: 12px;
+        height: 12px;
+        top: -8px;
+        box-shadow: 0 0 12px 4px #ffe06699;
+      }
+      .cake-sprinkle {
+        width: 8px;
+        height: 8px;
+      }
+      .sprinkle1 { top: 40px; left: 24px; }
+      .sprinkle2 { top: 48px; left: 60px; }
+      .sprinkle3 { top: 32px; left: 90px; }
+      .sprinkle4 { top: 56px; left: 140px; }
+      .sprinkle5 { top: 44px; left: 160px; }
+      .profile-pic {
+        width: 160px;
+        height: 160px;
+        border-width: 8px;
+        top: -20px;
+      }
+      .envelope-btn {
+        width: 140px;
+        height: 70px;
+        font-size: 1.1rem;
+      }
+      .envelope-flap {
+        width: 70px;
+        height: 35px;
+        top: -20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio src="birthday.mp3" autoplay loop hidden></audio>
+  <!-- Balloons -->
+  <div class="balloon balloon1"></div>
+  <div class="balloon balloon2"></div>
+  <div class="balloon balloon3"></div>
+  <div class="balloon balloon4"></div>
+  <div class="balloon balloon5"></div>
+  <!-- Confetti -->
+  <div class="confetti confetti1"></div>
+  <div class="confetti confetti2"></div>
+  <div class="confetti confetti3"></div>
+  <div class="confetti confetti4"></div>
+  <div class="confetti confetti5"></div>
+  <div class="confetti confetti6"></div>
+  <div class="confetti confetti7"></div>
+  <div class="confetti confetti8"></div>
+  <div class="container">
+    <h1 class="curved-heading">
+      <span>H</span><span>A</span><span>P</span><span>P</span><span>Y</span>
+      <span>&nbsp;</span>
+      <span>B</span><span>I</span><span>R</span><span>T</span><span>H</span><span>D</span><span>A</span><span>Y</span><span>!</span>
+    </h1>
+    <div class="cake-profile-wrapper">
+      <img src="gian.png" alt="Profile Picture" class="profile-pic">
+      <div class="cake">
+        <div class="cake-candle"></div>
+        <div class="cake-flame"></div>
+        <!-- Sprinkles directly on the cake, above icing -->
+        <div class="cake-sprinkle sprinkle1"></div>
+        <div class="cake-sprinkle sprinkle2"></div>
+        <div class="cake-sprinkle sprinkle3"></div>
+        <div class="cake-sprinkle sprinkle4"></div>
+        <div class="cake-sprinkle sprinkle5"></div>
+        <div class="cake-icing"></div>
+        <div class="cake-base"></div>
+      </div>
+    </div>
+    <button class="envelope-btn">
+      <div class="envelope-flap"></div>
+      <span>Your New Envelope Message</span>
+    </button>
+    <div class="thankyou-message">Thank You So Much For EveryThing</div>
+  </div>
+</body>
+</html> 
